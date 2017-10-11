@@ -16,14 +16,14 @@ namespace TalkingClock
             bool morning = true;
             string outputTime = "The time is ";
 
-            if (hours > 12)
+            if (hours >= 12 && hours != 24)
             {
                 if (hours != 12)
                     hours -= 12;
 
                 morning = false;
             }
-            else if (hours == 0)
+            else if (hours == 0 || hours == 24)
                 hours = 12;
 
             outputTime += ones[hours];
