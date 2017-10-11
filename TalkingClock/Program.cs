@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
 namespace TalkingClock
 {
     class Program
     {
-        static string[] ones = new string [] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        static string[] ones = new string[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                                                "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seveteen", "eighteen", "nineteen" };
-        static string[] tens = new string [] { "ten", "twenty", "thirty", "fourty", "fifty" };
+        static string[] tens = new string[] { "ten", "twenty", "thirty", "fourty", "fifty" };
 
         static void Main(string[] args)
         {
@@ -51,6 +52,11 @@ namespace TalkingClock
                 outputTime += " PM";
 
             Console.WriteLine(outputTime);
+
+            SpeechSynthesizer spokenTime = new SpeechSynthesizer();
+            spokenTime.Volume = 100;
+            spokenTime.Rate = -2;
+            spokenTime.Speak(outputTime);
         }
     }
 }
