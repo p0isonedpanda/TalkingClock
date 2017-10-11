@@ -11,9 +11,8 @@ namespace TalkingClock
 
         static void Main(string[] args)
         {
-            string inputTime = Console.ReadLine();
-            int hours = Int32.Parse(inputTime.Substring(0, 2));
-            int minutes = Int32.Parse(inputTime.Substring(3));
+            int hours = DateTime.Now.Hour;
+            int minutes = DateTime.Now.Minute;
             bool morning = true;
             string outputTime = "The time is ";
 
