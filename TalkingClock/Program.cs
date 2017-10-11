@@ -11,6 +11,20 @@ namespace TalkingClock
 
         static void Main(string[] args)
         {
+            SpeakTime();
+
+            while (true)
+            {
+                if (DateTime.Now.Minute == 0)
+                {
+                    SpeakTime();
+                }
+                System.Threading.Thread.Sleep(1);
+            }
+        }
+
+        static void SpeakTime()
+        {
             int hours = DateTime.Now.Hour;
             int minutes = DateTime.Now.Minute;
             bool morning = true;
